@@ -1,8 +1,160 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
 body {
-    background-image:url('./asssets/matrix.gif');
-    background-size:100%;
-    background-repeat: repeat-y;
-    background-attachment: fixed;
-    height:100%;
-    width:100%;
+    font-family: 'Segoe UI', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+
+    /* ALAP GRADIENT (wininstall style) */
+    background: linear-gradient(135deg, #0f0c29, #302b63, #1a1a3a);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* MATRIX OVERLAY (FINOM, NEM ZAVARÓ) */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background-image: url('./asssets/matrix.gif');
+    background-size: cover;
+    background-position: center;
+
+    opacity: 0.25;
+
+    mix-blend-mode: screen;
+    filter: hue-rotate(260deg) brightness(1.2) contrast(1.2);
+
+    pointer-events: none;
+}
+
+/* GLASS CONTAINER */
+.container {
+    position: relative;
+    z-index: 1;
+
+    text-align: center;
+
+    padding: 50px;
+    max-width: 700px;
+
+    border-radius: 20px;
+
+    background: rgba(255,255,255,0.04);
+    backdrop-filter: blur(12px);
+
+    box-shadow:
+        0 0 25px rgba(138,43,226,0.3),
+        inset 0 0 20px rgba(255,255,255,0.05);
+
+    animation: fadeIn 1s ease;
+}
+
+/* TITLE */
+.title {
+    font-size: 3rem;
+
+    background: linear-gradient(90deg, #a855f7, #3b82f6);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/* SUBTITLE */
+.subtitle {
+    margin-top: 20px;
+    color: #cbd5ff;
+    line-height: 1.6;
+}
+
+/* HR */
+hr {
+    margin: 30px auto;
+    width: 60%;
+    border: none;
+    height: 1px;
+
+    background: linear-gradient(to right, transparent, #7c3aed, transparent);
+}
+
+/* BUTTON */
+.enter-btn {
+    display: inline-block;
+    margin-top: 20px;
+
+    padding: 14px 28px;
+    border-radius: 12px;
+
+    background: linear-gradient(135deg, #7c3aed, #2563eb);
+    color: white;
+
+    font-weight: bold;
+    text-decoration: none;
+
+    box-shadow: 0 0 15px rgba(138,43,226,0.6);
+    transition: 0.3s;
+
+    position: relative;
+    overflow: hidden;
+}
+
+/* SHINE EFFECT */
+.enter-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 150%;
+    height: 100%;
+
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+    transform: skewX(-25deg);
+}
+
+/* HOVER */
+.enter-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 30px rgba(138,43,226,1);
+}
+
+.enter-btn:hover::before {
+    animation: shine 0.8s forwards;
+}
+
+/* ANIMATIONS */
+@keyframes shine {
+    100% {
+        left: 120%;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    .container {
+        margin: 20px;
+        padding: 25px;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
 }
