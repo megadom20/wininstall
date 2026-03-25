@@ -1,0 +1,226 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY + ANIMATED BACKGROUND */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    color: #e0e0ff;
+    overflow-x: hidden;
+
+    background: linear-gradient(270deg, #0f0c29, #302b63, #1a1a3a, #3a0ca3);
+    background-size: 800% 800%;
+    animation: gradientFlow 15s ease infinite;
+}
+
+/* BACKGROUND ANIMATION */
+@keyframes gradientFlow {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+/* NAVBAR */
+nav {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(15px);
+    padding: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    border-bottom: 1px solid rgba(138,43,226,0.3);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+nav a {
+    color: #b8b8ff;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+}
+
+/* NAV HOVER LINE EFFECT */
+nav a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    left: 0;
+    bottom: -4px;
+    background: #a855f7;
+    transition: 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+nav a:hover {
+    color: #fff;
+    text-shadow: 0 0 10px #8a2be2;
+}
+
+/* CONTAINERS (GLASS EFFECT) */
+div {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 25px;
+
+    background: rgba(255,255,255,0.05);
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
+
+    box-shadow:
+        0 0 20px rgba(138,43,226,0.2),
+        inset 0 0 20px rgba(255,255,255,0.05);
+
+    transition: 0.3s;
+}
+
+/* HOVER GLOW */
+div:hover {
+    transform: translateY(-5px);
+    box-shadow:
+        0 0 40px rgba(138,43,226,0.5),
+        inset 0 0 20px rgba(255,255,255,0.1);
+}
+
+/* HEADINGS */
+h1 {
+    text-align: center;
+    font-size: 2.7rem;
+    margin-top: 20px;
+
+    background: linear-gradient(90deg, #a855f7, #3b82f6);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+h2, h3, h4 {
+    margin-bottom: 10px;
+}
+
+.section-title {
+    color: #c084fc;
+    text-shadow: 0 0 15px #7c3aed;
+}
+
+/* SPECIAL TEXT */
+.warning {
+    color: #ff4d6d;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(255,0,80,0.6);
+}
+
+.highlight {
+    color: #a78bfa;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(140,100,255,0.6);
+}
+
+/* BUTTONS (NEON) */
+.btn {
+    display: inline-block;
+    margin: 10px 10px 10px 0;
+    padding: 12px 22px;
+    border-radius: 12px;
+    border: none;
+
+    background: linear-gradient(135deg, #7c3aed, #2563eb);
+    cursor: pointer;
+
+    position: relative;
+    overflow: hidden;
+
+    box-shadow: 0 0 15px rgba(138,43,226,0.6);
+    transition: 0.3s;
+}
+
+.btn a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* BUTTON GLOW ANIMATION */
+.btn::before {
+    content: "";
+    position: absolute;
+    width: 150%;
+    height: 100%;
+    top: 0;
+    left: -50%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+    transform: skewX(-25deg);
+}
+
+/* HOVER EFFECT */
+.btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 30px rgba(138,43,226,1);
+}
+
+.btn:hover::before {
+    animation: shine 0.8s forwards;
+}
+
+@keyframes shine {
+    100% {
+        left: 120%;
+    }
+}
+
+/* LINKS */
+a {
+    color: #9aa6ff;
+    transition: 0.2s;
+}
+
+a:hover {
+    color: #ffffff;
+}
+
+/* CODE BLOCK */
+code {
+    background: rgba(0,0,0,0.5);
+    padding: 5px 8px;
+    border-radius: 6px;
+    color: #c084fc;
+}
+
+/* LIST */
+ul, ol {
+    margin: 15px 0 15px 20px;
+}
+
+/* HR */
+hr {
+    border: none;
+    height: 1px;
+    width: 80%;
+    margin: 50px auto;
+
+    background: linear-gradient(to right, transparent, #7c3aed, transparent);
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    div {
+        margin: 20px;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+}
